@@ -1,0 +1,54 @@
+fucntion getEmployeeData() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState === 4) {
+      console.log(typeof xhr.responseText);
+      var employees = JSON.parse(xhr.responseText);
+      // console.log(typeof employees);
+      // console.log(employees);
+      var statusHTML = '<ul class="bulleted">';
+      for (var i=0; i < employees.length; i += 1) {
+        // employees[i] = employee object
+        if (employees[i].inoffice === true) {
+          statusHTML += '<li class="in"';
+        } else {
+          statusHTML += '<li class="out"';
+        }
+        // employees[i].name = employees name of object,
+        statusHTML += employees[i].name;
+        statusHTML += '</li>';
+      }
+      statusHTML += '</ul>';
+      document.getElementById('employeeList').innerHTML = statusHTML;
+    }
+  };
+  xhr.open('GET', 'data/employees.json');
+  xhr.send();
+}
+
+function getRoomData() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState === 4 && xhr.status === 200) {
+      var rooms = JSON.parse(xhr.responseText);
+      var statusHTML = '<ul class="rooms">';
+      for (var i=0; i<rooms.length; i += 1) {
+        if (rooms[i].available === true) {
+          statusHTML += '<li class="empty">';
+        } else {
+          statusHTML += '<li class="full">';
+        }
+        statusHTML += rooms[i].room;
+        statusHTML += '</li>';
+      }
+      statusHTML += '</ul>';
+      document.getElementById('roomList').innerHTML = statusHTML;
+      console.log(statusHTML);
+    }
+  };
+  xhr.open('GET', '../data/rooms.json');
+  xhr.send();
+}
+
+getEmployeeData();
+getRoomData();
