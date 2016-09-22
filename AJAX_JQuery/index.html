@@ -8,7 +8,15 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script>
   function sendAJAX() {
-    $('#ajax').load('sidebar.html');
+  // original version
+  // $('#ajax').load('sidebar.html');
+  //   $('#load').hide();
+  // }
+
+  // alternate version
+    $.get('sidebar.html', function(response) {
+      $('#ajax').html(response);
+    });
     $('#load').hide();
   }
   </script>
