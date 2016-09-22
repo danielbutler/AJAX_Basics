@@ -1,4 +1,4 @@
-fucntion getEmployeeData() {
+function getEmployeeData() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if(xhr.readyState === 4) {
@@ -27,10 +27,10 @@ fucntion getEmployeeData() {
 }
 
 function getRoomData() {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if(xhr.readyState === 4 && xhr.status === 200) {
-      var rooms = JSON.parse(xhr.responseText);
+  var roomRequest = new XMLHttpRequest();
+  roomRequest.onreadystatechange = function () {
+    if(roomRequest.readyState === 4 && roomRequest.status === 200) {
+      var rooms = JSON.parse(roomRequest.responseText);
       var statusHTML = '<ul class="rooms">';
       for (var i=0; i<rooms.length; i += 1) {
         if (rooms[i].available === true) {
@@ -46,8 +46,8 @@ function getRoomData() {
       console.log(statusHTML);
     }
   };
-  xhr.open('GET', '../data/rooms.json');
-  xhr.send();
+  roomRequest.open('GET', '../data/rooms.json');
+  roomRequest.send();
 }
 
 getEmployeeData();
