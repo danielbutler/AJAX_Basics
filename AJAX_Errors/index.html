@@ -11,7 +11,8 @@
     $.get('missing.html', function(data) {
       $('#myDiv').html(data);
     }).fail(function (jqXHR) {
-      // alert(jqXHR.statusText);
+      // alert(jqXHR.statusText); // for status test "ok'"
+      // alert(jqXHR.statusCode); // for specific status error code "404"
       var errorMessage = "<p>Sorry! There,'s been an error. ";
       errorMessage += "Please try again laster.</p>"
       // $('#myDiv').html("<p>Sorry! " + jqXHR.statusText + "</p>");
