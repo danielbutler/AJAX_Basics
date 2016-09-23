@@ -10,9 +10,9 @@ function getEmployeeData() {
       for (var i=0; i < employees.length; i += 1) {
         // employees[i] = employee object
         if (employees[i].inoffice === true) {
-          statusHTML += '<li class="in"';
+          statusHTML += '<li class="in">';
         } else {
-          statusHTML += '<li class="out"';
+          statusHTML += '<li class="out">';
         }
         // employees[i].name = employees name of object,
         statusHTML += employees[i].name;
@@ -20,6 +20,7 @@ function getEmployeeData() {
       }
       statusHTML += '</ul>';
       document.getElementById('employeeList').innerHTML = statusHTML;
+
     }
   };
   xhr.open('GET', 'data/employees.json');
@@ -46,7 +47,7 @@ function getRoomData() {
       console.log(statusHTML);
     }
   };
-  roomRequest.open('GET', '../data/rooms.json');
+  roomRequest.open('GET', 'data/rooms.json');
   roomRequest.send();
 }
 
