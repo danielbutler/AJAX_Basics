@@ -15,7 +15,7 @@
 //The complete HTML goes inside a div with the ID of “roomList”
 
 $(document).ready(function () {
-  $.getJSON('../data/employees.json', function (data) {
+  $.getJSON('data/employees.json', function (data) {
     var statusHTML = '<ul class="bulleted">';
     $.each(data,function (index, employee) {
       if (employee.inoffice === true) {
@@ -29,7 +29,7 @@ $(document).ready(function () {
     $('#employeeList').html(statusHTML)
   }); // end getJSON
 
-  $.getJSON('../data/rooms.json', function (data) {
+  $.getJSON('data/rooms.json', function (data) {
     var roomHTML = '<ul class="rooms">';
     $.each(data,function (index, room) {
       if (room.available === true) {

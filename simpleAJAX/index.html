@@ -7,9 +7,9 @@
   <title>AJAX with JavaScript</title>
   <script>
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = funcction() {
+  xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200)  {
-      if (xhr.status === 200 {
+      if (xhr.status === 200) {
         //if file is ok
         document.getElementById('ajax').innerHTML = xhr.responseText;
       } else {
@@ -29,7 +29,7 @@
     xhr.send();
     document.getElementById('load').style.display = "none";
   }
-  xhr.send();
+  // xhr.send();
   </script>
 </head>
 <body>
